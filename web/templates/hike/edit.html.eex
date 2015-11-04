@@ -1,0 +1,6 @@
+<h2>Edit hike</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: hike_path(@conn, :update, @hike) %>
+
+<%= link "Back", to: hike_path(@conn, :index) %>

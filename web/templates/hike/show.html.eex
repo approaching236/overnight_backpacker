@@ -1,0 +1,48 @@
+<h2>Show hike</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @hike.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @hike.description %>
+  </li>
+
+  <li>
+    <strong>Directions:</strong>
+    <%= @hike.directions %>
+  </li>
+
+  <li>
+    <strong>Distance:</strong>
+    <%= @hike.distance %>
+  </li>
+
+  <li>
+    <strong>Trailhead lat:</strong>
+    <%= @hike.trailhead_lat %>
+  </li>
+
+  <li>
+    <strong>Trailhead long:</strong>
+    <%= @hike.trailhead_long %>
+  </li>
+
+  <li>
+    <strong>Elevation gain:</strong>
+    <%= @hike.elevation_gain %>
+  </li>
+
+  <li>
+    <strong>Elevation loss:</strong>
+    <%= @hike.elevation_loss %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: hike_path(@conn, :edit, @hike) %>
+<%= link "Back", to: hike_path(@conn, :index) %>

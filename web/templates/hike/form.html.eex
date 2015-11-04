@@ -1,0 +1,56 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, "Name", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, "Description", class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :directions, "Directions", class: "control-label" %>
+    <%= textarea f, :directions, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :distance, "Distance", class: "control-label" %>
+    <%= number_input f, :distance, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :trailhead_lat, "Trailhead lat", class: "control-label" %>
+    <%= number_input f, :trailhead_lat, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :trailhead_long, "Trailhead long", class: "control-label" %>
+    <%= number_input f, :trailhead_long, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :elevation_gain, "Elevation gain", class: "control-label" %>
+    <%= number_input f, :elevation_gain, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :elevation_loss, "Elevation loss", class: "control-label" %>
+    <%= number_input f, :elevation_loss, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

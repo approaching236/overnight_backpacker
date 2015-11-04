@@ -1,0 +1,40 @@
+<h2>Listing hikes</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Directions</th>
+      <th>Distance</th>
+      <th>Trailhead lat</th>
+      <th>Trailhead long</th>
+      <th>Elevation gain</th>
+      <th>Elevation loss</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for hike <- @hikes do %>
+    <tr>
+      <td><%= hike.name %></td>
+      <td><%= hike.description %></td>
+      <td><%= hike.directions %></td>
+      <td><%= hike.distance %></td>
+      <td><%= hike.trailhead_lat %></td>
+      <td><%= hike.trailhead_long %></td>
+      <td><%= hike.elevation_gain %></td>
+      <td><%= hike.elevation_loss %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: hike_path(@conn, :show, hike), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: hike_path(@conn, :edit, hike), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: hike_path(@conn, :delete, hike), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New hike", to: hike_path(@conn, :new) %>

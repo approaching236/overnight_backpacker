@@ -17,6 +17,7 @@ defmodule OvernightBackpacker.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/hikes", HikeController
   end
 
   # Other scopes may use custom stacks.
