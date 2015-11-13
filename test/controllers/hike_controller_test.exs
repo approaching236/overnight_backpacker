@@ -2,7 +2,16 @@ defmodule OvernightBackpacker.HikeControllerTest do
   use OvernightBackpacker.ConnCase
 
   alias OvernightBackpacker.Hike
-  @valid_attrs %{description: "some content", directions: "some content", distance: "120.5", elevation_gain: "120.5", elevation_loss: "120.5", name: "some content", trailhead_lat: "120.5", trailhead_long: "120.5"}
+
+  @valid_attrs %{description: "some content",
+                 directions: "some content",
+                 distance: "120.5",
+                 elevation_gain: "120.5",
+                 elevation_loss: "120.5",
+                 name: "Cowels Mountain",
+                 trailhead_lat: "120.5",
+                 trailhead_long: "120.5"}
+
   @invalid_attrs %{}
 
   setup do
@@ -32,9 +41,9 @@ defmodule OvernightBackpacker.HikeControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    hike = Repo.insert! %Hike{}
+    hike = Repo.insert! %Hike{name: @valid_attrs.name}
     conn = get conn, hike_path(conn, :show, hike)
-    assert html_response(conn, 200) =~ "Show hike"
+    assert html_response(conn, 200) =~ @valid_attrs.name
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
