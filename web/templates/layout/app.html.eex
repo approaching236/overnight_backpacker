@@ -7,17 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Overnight Backpacker</title>
+    <title>※</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container" role="main">
-      <div class="header">
-        <h2>Overnight Backpacker</h2>
-        <ul class="nav nav-pills pull-right">
-          <li><a href="<%= hike_path @conn, :index %>">Hikes</a></li>
-        </ul>
+      <div class="page-header">
+        <h2>Overnight Backpacker ※
+          <small>
+            <a href="<%= hike_path @conn, :index %>">Hikes</a>
+          </small>
+        </h2>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
